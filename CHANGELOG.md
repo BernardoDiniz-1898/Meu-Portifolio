@@ -7,6 +7,27 @@ e o projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Não publicado]
 
+## [1.1.0] - 2026-10-14
+
+Orientação do portfólio ao mercado de trabalho (vaga de desenvolvedor júnior).
+
+### Adicionado
+
+- Metadados **Open Graph** e **Twitter Card**, URL canônica e imagem de
+  compartilhamento (`assets/img/og-preview.png`) para prévia consistente ao
+  compartilhar o link.
+- **Hierarquia de projetos**: a seção passa a dividir os trabalhos em
+  "Principais projetos" (destaques) e "Outros projetos".
+- **Currículo** em página própria (`curriculo.html`), pronta para impressão e
+  condensada em uma única página, com atalho no hero do site.
+
+### Alterado
+
+- **Habilidades** realinhadas ao núcleo das vagas: incluídas Banco de Dados
+  (SQL), APIs REST, Autenticação & Autorização e Testes automatizados; removidas
+  Documentação, Análise de Dados e Java.
+- README e contrato de design (`DESIGN.md`) atualizados para a nova estrutura.
+
 ## [1.0.2] - 2026-10-14
 
 ### Alterado
@@ -57,7 +78,8 @@ Primeira versão versionada do portfólio.
   `progressbar`, suporte a `prefers-reduced-motion` e foco visível.
 - Contraste do texto secundário elevado para AA (de ~4,18:1 para ~7,2:1).
 
-[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.2...HEAD
+[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/releases/tag/v1.0.0
