@@ -87,23 +87,34 @@ Navegador
    |
    |-- index.html
    |      |-- estrutura e conteúdo
-   |      |-- metadados e dependências externas
-   |      `-- JavaScript da interface
+   |      `-- metadados e dependências externas
    |
-   `-- style.css
-          |-- tokens visuais
-          |-- componentes e animações
-          `-- responsividade
+   |-- assets/css/style.css
+   |      |-- tokens visuais
+   |      |-- componentes e animações
+   |      `-- responsividade
+   |
+   `-- assets/js/main.js
+          |-- menu e navbar
+          `-- revelação de seção e formulário
 ```
 
 ## Estrutura
 
 ```text
 Meu-Portifolio/
-├── index.html   # Conteúdo, estrutura e comportamento
-├── style.css    # Tokens, tema, layout, componentes e responsividade
-├── DESIGN.md    # Contrato do sistema visual (tokens e componentes)
-└── README.md    # Documentação do projeto
+├── .github/                 # Templates de Pull Request e de issues
+├── assets/
+│   ├── css/
+│   │   └── style.css        # Tokens, tema, layout, componentes e responsividade
+│   └── js/
+│       └── main.js          # Menu, navbar, revelação de seção e formulário
+├── .editorconfig            # Padronização de indentação e encoding
+├── .gitignore
+├── CHANGELOG.md             # Histórico de versões
+├── DESIGN.md                # Contrato do sistema visual (tokens e componentes)
+├── index.html               # Conteúdo e estrutura
+└── README.md                # Documentação do projeto
 ```
 
 ## Como executar
@@ -239,7 +250,6 @@ estados de foco visíveis (`:focus-visible`). Também já estão implementados:
 ## Próximos passos
 
 - Adicionar currículo para download.
-- Extrair o JavaScript para um arquivo separado.
 - Adicionar Open Graph, URL canônica e dados estruturados.
 - Criar verificações automatizadas de HTML, CSS, acessibilidade e links.
 - Adicionar screenshots da versão desktop e mobile ao repositório.
