@@ -52,6 +52,14 @@ components:
     backgroundColor: "{colors.ground}"
     borderColor: "{colors.rule}"
     rounded: "{rounded.sm}"
+  projects-group-title:
+    # rótulo de grupo dos projetos (Principais/Outros); Fira Code com régua de 1px
+    fontFamily: Fira Code
+    fontSize: 0.8125rem
+    color: "{colors.signal}"
+  cv-button:
+    # atalho para curriculo.html; reaproveita o .btn-secondary
+    rounded: "{rounded.sm}"
 ---
 
 ## Overview
@@ -105,7 +113,9 @@ Grade de ficha técnica, tudo alinhado à esquerda: um container de 1080px para 
 conteúdo, seções separadas por réguas de 1px e um cabeçalho de seção com um
 pequeno quadrado vermelho (a marca). O hero é assimétrico (texto + painel de
 código). A ideia estrutural: **os projetos são a espinha** — cada um é uma linha
-de ficha (rail com o código do projeto + corpo), não um card arredondado. O hero
+de ficha (rail com o código do projeto + corpo), não um card arredondado. Os
+projetos se organizam em dois grupos — **Principais** (fichas mais altas) e
+**Outros** (fichas mais compactas) —, o que dá hierarquia à leitura. O hero
 termina numa **curva de horizonte/estrato** em SVG (a assinatura), reaproveitada
 como linguagem de régua. Números só onde há sequência real (a timeline).
 
@@ -132,8 +142,12 @@ no topo (linha de sinal dirigida por `animation-timeline: scroll()`). Botões
 `.btn-primary` (fundo de sinal) e `.btn-secondary` (borda de régua). Listas de
 ficha (`.spec-item`, `.skill`, `.project`, `.contact-item`) com réguas de 1px.
 Formulário de contato (`.contact-form`, `.field`) com estados nativos
-(`:focus-visible`, `:valid`, `:user-invalid`) que compõe um `mailto:`. Todas as
-páginas futuras reutilizam estes componentes e tokens.
+(`:focus-visible`, `:valid`, `:user-invalid`) que compõe um `mailto:`. Os
+projetos usam dois grupos (`.projects-group-title`, `.projects-list-featured`,
+`.projects-list-others`) para marcar hierarquia. O atalho de currículo no hero
+leva a `curriculo.html`, que reaproveita os mesmos tokens em uma folha de
+impressão. A imagem de compartilhamento (`assets/img/og-preview.png`) segue a
+mesma paleta. Todas as páginas futuras reutilizam estes componentes e tokens.
 
 ## Do's and Don'ts
 
