@@ -1,0 +1,31 @@
+# Dependências
+node_modules/
+
+# Build / artefatos
+dist/
+build/
+.cache/
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Publicação
+.netlify/
+.vercel/
