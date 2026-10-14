@@ -773,6 +773,49 @@ svg { display: block; }
     border-top: 1px solid var(--rule);
 }
 
+.projects-group-title {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--signal-strong);
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.projects-group-title:not(:first-of-type) {
+    margin-top: 56px;
+}
+
+.projects-list-featured .project {
+    padding: 40px 0;
+}
+
+.projects-list-featured .project-body h3 {
+    font-size: 1.6rem;
+}
+
+.projects-list-others {
+    margin-top: 4px;
+}
+
+.projects-list-others .project {
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.projects-list-others .project-body h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.projects-list-others .project-body p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
 .project {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -1166,7 +1209,8 @@ svg { display: block; }
         padding: 80px 0;
     }
 
-    .project {
+    .project,
+    .projects-list-others .project {
         grid-template-columns: 1fr;
         gap: 14px;
     }
