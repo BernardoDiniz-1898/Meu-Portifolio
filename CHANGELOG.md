@@ -7,6 +7,14 @@ e o projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Não publicado]
 
+## [1.0.2] - 2026-10-14
+
+### Alterado
+
+- Cabeçalho do bloco de código do hero volta a exibir o nome de arquivo
+  (`perfil.js`), preservando a leitura do bloco como artefato de código.
+  Reverte a mudança da versão 1.0.1.
+
 ## [1.0.1] - 2026-10-14
 
 ### Alterado
@@ -49,6 +57,7 @@ Primeira versão versionada do portfólio.
   `progressbar`, suporte a `prefers-reduced-motion` e foco visível.
 - Contraste do texto secundário elevado para AA (de ~4,18:1 para ~7,2:1).
 
-[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.1...HEAD
+[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/releases/tag/v1.0.0
