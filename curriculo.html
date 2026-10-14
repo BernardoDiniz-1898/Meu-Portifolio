@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo | Bernardo Diniz</title>
+  <meta name="description" content="Currículo de Bernardo Diniz, Técnico em Análise e Desenvolvimento de Sistemas em Belo Horizonte - MG.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f2ede7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ground: #f2ede7;
+      --surface: #e9e1d7;
+      --ink: #1b1613;
+      --muted: #5c534b;
+      --signal: #dc2626;
+      --signal-strong: #b91c1c;
+      --rule: #d9cfc3;
+      --font-sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'Fira Code', ui-monospace, 'Cascadia Code', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv-bar {
+      position: sticky;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 24px;
+      background: var(--ink);
+      color: var(--ground);
+    }
+
+    .cv-bar p {
+      font-size: 0.8125rem;
+      color: #cfc7bd;
+    }
+
+    .cv-bar button {
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      color: #fff;
+      background: var(--signal);
+      border: 0;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .cv-bar button:hover {
+      background: var(--signal-strong);
+    }
+
+    .cv-bar button:focus-visible,
+    .cv-contact a:focus-visible,
+    .cv-project a:focus-visible {
+      outline: 2px solid var(--signal);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .cv {
+      max-width: 860px;
+      margin: 28px auto;
+      padding: 44px 52px;
+      background: var(--ground);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+
+    .cv-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--signal);
+    }
+
+    .cv-name {
+      font-size: 2.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .cv-role {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 3px;
+    }
+
+    .cv-contact {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .cv-contact a {
+      color: var(--signal-strong);
+      text-decoration: none;
+    }
+
+    .cv-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 0 40px;
+      align-content: start;
+      margin-top: 20px;
+    }
+
+    .cv-col {
+      min-width: 0;
+    }
+
+    .cv h2 {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-strong);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+      margin: 22px 0 12px;
+    }
+
+    .cv-col > section:first-child > h2 {
+      margin-top: 0;
+    }
+
+    .cv p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .cv-job {
+      padding-bottom: 10px;
+    }
+
+    .cv-job + .cv-job {
+      border-top: 1px solid var(--rule);
+      padding-top: 10px;
+    }
+
+    .cv-job-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .cv-job h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .cv-date {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .cv-org {
+      font-size: 0.85rem;
+      color: var(--signal-strong);
+      font-weight: 600;
+    }
+
+    .cv-job p {
+      font-size: 0.88rem;
+    }
+
+    .cv-skills {
+      list-style: none;
+    }
+
+    .cv-skills li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.9rem;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cv-skills .cv-level {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .cv-project {
+      padding-bottom: 10px;
+    }
+
+    .cv-project + .cv-project {
+      border-top: 1px solid var(--rule);
+      padding-top: 10px;
+    }
+
+    .cv-project h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .cv-stack {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .cv-project p {
+      font-size: 0.88rem;
+      margin-top: 3px;
+    }
+
+    .cv-project a {
+      color: var(--signal-strong);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+
+    .cv-project a:hover {
+      text-decoration: underline;
+    }
+
+    .cv-footer {
+      max-width: 860px;
+      margin: 0 auto 40px;
+      padding: 0 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .cv {
+        margin: 16px;
+        padding: 28px 22px;
+      }
+
+      .cv-body {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .cv-contact {
+        text-align: left;
+      }
+
+      .cv h2 {
+        margin-top: 22px;
+      }
+
+      .cv-col > section:first-child > h2 {
+        margin-top: 22px;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: 12mm;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .cv-bar,
+      .cv-footer {
+        display: none;
+      }
+
+      .cv {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .cv h2 {
+        margin-top: 15px;
+      }
+
+      .cv-job,
+      .cv-project {
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: var(--ink);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cv-bar">
+    <p>Use "Salvar em PDF" e escolha o destino no navegador.</p>
+    <button type="button" onclick="window.print()">Salvar em PDF</button>
+  </div>
+
+  <main class="cv">
+    <header class="cv-header">
+      <div>
+        <h1 class="cv-name">Bernardo Diniz</h1>
+        <p class="cv-role">Técnico em Análise e Desenvolvimento de Sistemas</p>
+      </div>
+      <ul class="cv-contact">
+        <li>Belo Horizonte - MG</li>
+        <li><a href="mailto:dinizbernardo798@gmail.com">dinizbernardo798@gmail.com</a></li>
+        <li><a href="https://wa.me/5531994910360">(31) 99491-0360</a></li>
+        <li><a href="https://www.linkedin.com/in/bernardo-diniz-275442356">linkedin.com/in/bernardo-diniz-275442356</a></li>
+        <li><a href="https://github.com/BernardoDiniz-1898">github.com/BernardoDiniz-1898</a></li>
+        <li><a href="https://bernardodiniz-1898.github.io/Meu-Portifolio/">bernardodiniz-1898.github.io/Meu-Portifolio</a></li>
+      </ul>
+    </header>
+
+    <div class="cv-body">
+      <div class="cv-col">
+        <section>
+          <h2>Resumo</h2>
+          <p>Profissional de TI de 19 anos, formado em Técnico em Análise e Desenvolvimento de Sistemas pelo SENAI.
+            Atua como Assistente de TI na Chammas Engenharia e desenvolve aplicações web com PHP/Laravel e Python, com
+            experiência em banco de dados relacionais, APIs REST e autenticação. Objetivo de ingressar em Ciência da
+            Computação na UFMG.</p>
+        </section>
+
+        <section>
+          <h2>Experiência</h2>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Assistente de T.I</h3>
+              <span class="cv-date">Dez 2025 – Atual</span>
+            </div>
+            <p class="cv-org">Chammas Engenharia, CLT</p>
+            <p>Atuação em Tecnologia da Informação, com evolução de Jovem Aprendiz e Estagiário até a posição atual.</p>
+          </div>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Estagiário de T.I</h3>
+              <span class="cv-date">Dez 2025</span>
+            </div>
+            <p class="cv-org">Chammas Engenharia, Estágio</p>
+          </div>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Jovem Aprendiz de T.I</h3>
+              <span class="cv-date">Mai 2025 – Nov 2025</span>
+            </div>
+            <p class="cv-org">Chammas Engenharia, Jovem Aprendiz</p>
+          </div>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Vendedor</h3>
+              <span class="cv-date">Mar 2025 – Mai 2025</span>
+            </div>
+            <p class="cv-org">Imperio Conect, Vendas</p>
+          </div>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Auxiliar e Lavador</h3>
+              <span class="cv-date">Mar 2024 – Out 2024</span>
+            </div>
+            <p class="cv-org">Studio MD, Operacional</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Projetos</h2>
+          <div class="cv-project">
+            <h3>Daily Care — TCC ADS SENAI</h3>
+            <p class="cv-stack">Laravel, PHP, Tailwind CSS, SQLite, WCAG 2.1</p>
+            <p>Marketplace acessível de fisioterapia com conformidade WCAG 2.1 AA, widget V-Libras e painéis de
+              paciente, clínica e administrador.</p>
+            <a href="https://github.com/BernardoDiniz-1898/dailycare">github.com/BernardoDiniz-1898/dailycare</a>
+          </div>
+          <div class="cv-project">
+            <h3>Keep Inventory — Projeto pessoal</h3>
+            <p class="cv-stack">Laravel, PHP, Blade, Tailwind CSS</p>
+            <p>Gestão de ativos corporativos com inventário de notebooks, funcionários e localizações, RBAC, dashboard
+              gerencial e conformidade ISO 27001.</p>
+            <a
+              href="https://github.com/BernardoDiniz-1898/Projeto-Inventario-de-Ativos-Corporativo">github.com/BernardoDiniz-1898/Projeto-Inventario-de-Ativos-Corporativo</a>
+          </div>
+          <div class="cv-project">
+            <h3>Chammas AI — Projeto corporativo</h3>
+            <p class="cv-stack">Python, LangChain, Chroma, Ollama, Flask, React</p>
+            <p>Assistente virtual com RAG que responde dúvidas a partir da base de conhecimento interna, com API Flask e
+              frontend React.</p>
+            <a href="https://github.com/BernardoDiniz-1898/LLM---Chammas">github.com/BernardoDiniz-1898/LLM---Chammas</a>
+          </div>
+          <div class="cv-project">
+            <h3>Outros projetos</h3>
+            <p class="cv-stack">Dashboard Posto 2 (Laravel, IoT), Gestão de Catálogo (Laravel, MySQL), Task Manager
+              (Laravel, MariaDB), Locadora de Veículos (Java, POO), Monitoramento de Rede (Python)</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="cv-col">
+        <section>
+          <h2>Habilidades</h2>
+          <ul class="cv-skills">
+            <li><span>PHP / Laravel</span><span class="cv-level">Médio/Avançado</span></li>
+            <li><span>Python</span><span class="cv-level">Médio/Avançado</span></li>
+            <li><span>Git / GitHub</span><span class="cv-level">Médio/Avançado</span></li>
+            <li><span>Banco de Dados (SQL)</span><span class="cv-level">MySQL, SQLite</span></li>
+            <li><span>APIs REST</span><span class="cv-level">Laravel e Flask</span></li>
+            <li><span>Autenticação &amp; Autorização</span><span class="cv-level">Login e RBAC</span></li>
+            <li><span>Linux</span><span class="cv-level">Conhecimento Médio</span></li>
+            <li><span>Testes automatizados</span><span class="cv-level">Iniciante</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Formação</h2>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Técnico em ADS</h3>
+              <span class="cv-date">Concluído</span>
+            </div>
+            <p class="cv-org">SENAI</p>
+          </div>
+          <div class="cv-job">
+            <div class="cv-job-head">
+              <h3>Ciência da Computação</h3>
+              <span class="cv-date">Objetivo</span>
+            </div>
+            <p class="cv-org">UFMG</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="cv-footer">
+    <p>Currículo gerado a partir do portfólio, bernardodiniz-1898.github.io/Meu-Portifolio</p>
+  </footer>
+</body>
+
+</html>

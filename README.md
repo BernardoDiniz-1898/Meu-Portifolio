@@ -27,11 +27,13 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 - Navegação por âncoras entre as seções da página.
 - Navbar fixa com mudança visual durante a rolagem.
 - Menu lateral adaptado para dispositivos móveis.
-- Hero com apresentação profissional e chamadas para ação.
+- Hero com apresentação profissional e chamadas para ação, incluindo link para o currículo.
 - Seção de perfil, formação e objetivos.
 - Timeline de experiências profissionais.
 - Habilidades em lista técnica com medidores animados e `role="progressbar"`.
-- Projetos apresentados como fichas técnicas, com tecnologias e links.
+- Projetos divididos em "Principais projetos" (destaques) e "Outros projetos", em fichas técnicas com tecnologias e links.
+- Currículo em página própria (`curriculo.html`), pronta para impressão/exportação em PDF.
+- Metadados Open Graph/Twitter, URL canônica e imagem de compartilhamento.
 - Tema claro/escuro alternável sem JavaScript (`:checked` + `:has()`), com sol e lua desenhados apenas em CSS.
 - Barra de progresso de leitura no topo, dirigida pela rolagem, sem JavaScript.
 - Animação de entrada do hero com `@keyframes` e revelação de seção com `IntersectionObserver` (conteúdo visível por padrão quando o JavaScript não está disponível).
@@ -50,7 +52,7 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 | Sobre | Perfil, formação, localização e objetivos |
 | Experiência | Histórico profissional em formato de timeline |
 | Habilidades | Tecnologias e conhecimentos declarados pelo autor |
-| Projetos | Projetos em fichas, com tecnologias e links |
+| Projetos | Principais projetos em destaque e demais projetos, com tecnologias e links |
 | Contato | E-mail, WhatsApp, LinkedIn, GitHub e formulário de mensagem |
 
 ## Tecnologias utilizadas
@@ -74,8 +76,9 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 - [cdnjs](https://cdnjs.com/) para entrega do Font Awesome.
 
 > [!NOTE]
-> Python, PHP, Laravel, Linux e Java aparecem como habilidades no conteúdo do
-> portfólio, mas não são tecnologias utilizadas na implementação deste site.
+> As tecnologias citadas em "Habilidades" e "Projetos" (Python, PHP, Laravel,
+> Linux etc.) aparecem como conteúdo do portfólio, mas não são tecnologias
+> utilizadas na implementação deste site.
 
 ## Arquitetura
 
@@ -94,6 +97,12 @@ Navegador
    |      |-- componentes e animações
    |      `-- responsividade
    |
+   |-- assets/img/og-preview.png
+   |      `-- imagem de compartilhamento (Open Graph)
+   |
+   |-- curriculo.html
+   |      `-- currículo para impressão/PDF
+   |
    `-- assets/js/main.js
           |-- menu e navbar
           `-- revelação de seção e formulário
@@ -107,12 +116,16 @@ Meu-Portifolio/
 ├── assets/
 │   ├── css/
 │   │   └── style.css        # Tokens, tema, layout, componentes e responsividade
+│   ├── img/
+│   │   ├── og-preview.png   # Imagem de compartilhamento (Open Graph)
+│   │   └── og-preview.svg   # Fonte vetorial da imagem
 │   └── js/
 │       └── main.js          # Menu, navbar, revelação de seção e formulário
 ├── .editorconfig            # Padronização de indentação e encoding
 ├── .gitignore
 ├── CHANGELOG.md             # Histórico de versões
 ├── DESIGN.md                # Contrato do sistema visual (tokens e componentes)
+├── curriculo.html           # Currículo para impressão/exportação em PDF
 ├── index.html               # Conteúdo e estrutura
 └── README.md                # Documentação do projeto
 ```
@@ -158,7 +171,7 @@ O layout utiliza dois breakpoints principais:
 |---|---|
 | Acima de 960 px | Hero em duas colunas (texto + painel) e habilidades em três colunas |
 | Até 960 px | Hero e grades em coluna única, parallax de fundo desativado |
-| Até 640 px | Menu lateral e formulário em coluna única |
+| Até 640 px | Menu lateral, formulário e fichas de projeto em coluna única |
 
 No mobile, o bloco decorativo de código é ocultado para priorizar o conteúdo e
 reduzir a densidade visual.
@@ -215,6 +228,15 @@ https://bernardodiniz-1898.github.io/Meu-Portifolio/
 Não existe workflow próprio no repositório. A publicação utiliza o processo de
 deploy configurado pelo GitHub Pages.
 
+## Currículo e compartilhamento
+
+- **Currículo:** a página `curriculo.html` reúne os dados do portfólio em um
+  layout de uma página, otimizado para impressão. O botão "Salvar em PDF" usa o
+  diálogo de impressão do navegador; não há geração de PDF no servidor.
+- **Compartilhamento:** o `index.html` declara título, descrição, URL canônica e
+  metadados Open Graph/Twitter, com a imagem `assets/img/og-preview.png`, para
+  que links compartilhados exibam uma prévia.
+
 ## Dependências de rede
 
 O HTML e o CSS local continuam disponíveis sem internet, mas a apresentação
@@ -245,14 +267,14 @@ estados de foco visíveis (`:focus-visible`). Também já estão implementados:
 - Informações como idade, cargo atual e ano do rodapé exigem atualização manual.
 - Ícones e fontes dependem de CDNs externos.
 - Não há testes automatizados, linter ou validação de links configurados.
-- Metadados de compartilhamento social ainda não foram adicionados.
+- O currículo (`curriculo.html`) depende do diálogo de impressão do navegador para virar PDF; não há PDF pré-gerado no repositório.
 
 ## Próximos passos
 
-- Adicionar currículo para download.
-- Adicionar Open Graph, URL canônica e dados estruturados.
+- Adicionar dados estruturados (JSON-LD) e um `sitemap.xml`.
 - Criar verificações automatizadas de HTML, CSS, acessibilidade e links.
 - Adicionar screenshots da versão desktop e mobile ao repositório.
+- Gerar um PDF do currículo para download direto.
 
 ## Autor
 
