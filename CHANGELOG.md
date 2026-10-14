@@ -7,6 +7,14 @@ e o projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
 ## [Não publicado]
 
+## [1.1.1] - 2026-10-14
+
+### Corrigido
+
+- Currículo (`curriculo.html`) condensado em uma única página A4: removidos os
+  itens que transbordavam para a segunda página e fixado o tamanho A4 na regra
+  de impressão.
+
 ## [1.1.0] - 2026-10-14
 
 Orientação do portfólio ao mercado de trabalho (vaga de desenvolvedor júnior).
@@ -78,7 +86,8 @@ Primeira versão versionada do portfólio.
   `progressbar`, suporte a `prefers-reduced-motion` e foco visível.
 - Contraste do texto secundário elevado para AA (de ~4,18:1 para ~7,2:1).
 
-[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.1.0...HEAD
+[Não publicado]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/BernardoDiniz-1898/Meu-Portifolio/compare/v1.0.0...v1.0.1
