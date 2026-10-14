@@ -30,9 +30,14 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 - Hero com apresentação profissional e chamadas para ação.
 - Seção de perfil, formação e objetivos.
 - Timeline de experiências profissionais.
-- Cards de habilidades com barras animadas.
-- Animações de entrada baseadas em `IntersectionObserver`.
-- Links diretos para e-mail, WhatsApp e GitHub.
+- Habilidades em lista técnica com medidores animados e `role="progressbar"`.
+- Projetos apresentados como fichas técnicas, com tecnologias e links.
+- Tema claro/escuro alternável sem JavaScript (`:checked` + `:has()`), com sol e lua desenhados apenas em CSS.
+- Barra de progresso de leitura no topo, dirigida pela rolagem, sem JavaScript.
+- Animação de entrada do hero com `@keyframes` e revelação de seção com `IntersectionObserver` (conteúdo visível por padrão quando o JavaScript não está disponível).
+- Formulário de contato com estados nativos (`:focus`, `:valid`, `:user-invalid`) que abre o e-mail já preenchido, sem servidor.
+- Link para pular ao conteúdo e elemento `<main>` para navegação por teclado.
+- Links diretos para e-mail, WhatsApp, LinkedIn e GitHub.
 - Layout responsivo para desktop, tablet e celular.
 - Rolagem suave com compensação para a navbar fixa.
 - Foco visível para navegação por teclado.
@@ -45,7 +50,8 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 | Sobre | Perfil, formação, localização e objetivos |
 | Experiência | Histórico profissional em formato de timeline |
 | Habilidades | Tecnologias e conhecimentos declarados pelo autor |
-| Contato | E-mail, WhatsApp, localização e GitHub |
+| Projetos | Projetos em fichas, com tecnologias e links |
+| Contato | E-mail, WhatsApp, LinkedIn, GitHub e formulário de mensagem |
 
 ## Tecnologias utilizadas
 
@@ -56,13 +62,14 @@ trajetória profissional do autor e encontrem rapidamente seus meios de contato.
 - JavaScript Vanilla
 - CSS Grid e Flexbox
 - CSS Custom Properties
+- `:has()`, `:checked`, `:user-invalid` e arte em CSS puro
+- Animações: `@keyframes`, `transition`, `IntersectionObserver` e `animation-timeline: scroll()`
 - Media queries
-- Intersection Observer API
 - GitHub Pages
 
 ### Recursos externos
 
-- [Google Fonts](https://fonts.google.com/) para as fontes Inter e Fira Code.
+- [Google Fonts](https://fonts.google.com/) para as fontes Archivo e Fira Code.
 - [Font Awesome](https://fontawesome.com/) para os ícones da interface.
 - [cdnjs](https://cdnjs.com/) para entrega do Font Awesome.
 
@@ -94,7 +101,8 @@ Navegador
 ```text
 Meu-Portifolio/
 ├── index.html   # Conteúdo, estrutura e comportamento
-├── style.css    # Tema, layout, animações e responsividade
+├── style.css    # Tokens, tema, layout, componentes e responsividade
+├── DESIGN.md    # Contrato do sistema visual (tokens e componentes)
 └── README.md    # Documentação do projeto
 ```
 
@@ -137,9 +145,9 @@ O layout utiliza dois breakpoints principais:
 
 | Largura | Comportamento |
 |---|---|
-| Acima de 900 px | Hero em duas colunas e habilidades em três colunas |
-| Até 900 px | Hero vertical e habilidades em duas colunas |
-| Até 600 px | Menu lateral e grids em uma única coluna |
+| Acima de 960 px | Hero em duas colunas (texto + painel) e habilidades em três colunas |
+| Até 960 px | Hero e grades em coluna única, parallax de fundo desativado |
+| Até 640 px | Menu lateral e formulário em coluna única |
 
 No mobile, o bloco decorativo de código é ocultado para priorizar o conteúdo e
 reduzir a densidade visual.
@@ -148,19 +156,37 @@ reduzir a densidade visual.
 
 ### Menu móvel
 
-O botão hambúrguer alterna a classe `active` na navegação. Selecionar um link
-fecha o painel automaticamente.
+O botão hambúrguer alterna a classe `active` na navegação e atualiza
+`aria-expanded`. Selecionar um link ou pressionar `Escape` fecha o painel.
+
+### Tema claro/escuro
+
+Um `<input type="checkbox">` oculto, mas focável, alterna o tema sem JavaScript:
+o seletor `:root:has(#theme-switch:checked)` troca os tokens de cor. O ícone é
+um sol e uma lua desenhados só com CSS.
 
 ### Animações de entrada
 
-Os cards de informações, experiências, habilidades e contatos são observados
-com `IntersectionObserver`. Quando entram na viewport, recebem a classe
-`visible` e executam suas transições.
+O hero entra com uma animação `@keyframes` orquestrada. As seções seguintes são
+observadas com `IntersectionObserver`; ao entrar na viewport recebem a classe
+`in-view` e executam a transição. Sem JavaScript, o conteúdo aparece por padrão.
 
 ### Barras de habilidades
 
-Cada habilidade possui um valor em `data-level`. O JavaScript converte esse
-valor em largura percentual quando a barra entra na área visível.
+Cada habilidade define `--level` em linha. A barra usa
+`width: calc(var(--level) * 1%)` e é animada quando a seção entra na área
+visível.
+
+### Barra de progresso
+
+Uma linha no topo usa `animation-timeline: scroll()` para acompanhar a leitura.
+Navegadores sem esse recurso simplesmente não exibem a barra.
+
+### Formulário de contato
+
+O envio é interceptado no cliente: o formulário valida os campos nativos e abre
+o cliente de e-mail com assunto e corpo já preenchidos. Nada é enviado a um
+servidor.
 
 ### Navbar
 
@@ -191,35 +217,28 @@ e os ícones poderão não aparecer.
 
 ## Acessibilidade
 
-O projeto já possui idioma `pt-BR`, hierarquia de títulos, links semânticos e
-estados de foco visíveis. Ainda existem melhorias importantes:
+O projeto possui idioma `pt-BR`, hierarquia de títulos, links semânticos e
+estados de foco visíveis (`:focus-visible`). Também já estão implementados:
 
-- Informar o estado do menu com `aria-expanded` e `aria-controls`.
-- Permitir fechamento do menu com a tecla `Escape`.
-- Adicionar um elemento `<main>` e um link para pular ao conteúdo.
-- Adicionar semântica de progresso às barras de habilidades.
-- Respeitar a preferência `prefers-reduced-motion`.
-- Manter o conteúdo visível quando o JavaScript estiver indisponível.
+- Link para pular ao conteúdo e elemento `<main>`.
+- Menu anunciado com `aria-expanded`/`aria-controls` e fechável com `Escape`.
+- Alternador de tema como controle nativo (checkbox) com rótulo acessível e foco visível.
+- Formulário com rótulos `<label>` associados e estados nativos de validação.
+- Semântica de progresso (`role="progressbar"`) nas habilidades.
+- Suporte a `prefers-reduced-motion`.
+- Conteúdo visível mesmo sem JavaScript.
 
 ## Limitações conhecidas
 
-- Não existe uma seção de projetos ou estudos de caso nesta versão.
-- Não existe formulário de contato ou backend para envio de mensagens.
-- O link de GitHub presente na página aponta para a página inicial do serviço,
-  não diretamente para o perfil do autor.
+- O formulário de contato não possui backend: ele abre o cliente de e-mail do usuário com a mensagem preenchida.
 - Informações como idade, cargo atual e ano do rodapé exigem atualização manual.
-- Parte do conteúdo começa invisível e depende de JavaScript para aparecer.
 - Ícones e fontes dependem de CDNs externos.
 - Não há testes automatizados, linter ou validação de links configurados.
 - Metadados de compartilhamento social ainda não foram adicionados.
 
 ## Próximos passos
 
-- Adicionar uma seção com projetos reais e links para código e demonstração.
-- Corrigir o link do perfil no GitHub e adicionar LinkedIn.
 - Adicionar currículo para download.
-- Melhorar a navegação móvel e a acessibilidade por teclado.
-- Aplicar animações como melhoria progressiva, com conteúdo visível por padrão.
 - Extrair o JavaScript para um arquivo separado.
 - Adicionar Open Graph, URL canônica e dados estruturados.
 - Criar verificações automatizadas de HTML, CSS, acessibilidade e links.
