@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Bernardo Diniz — Portfólio">
+  <rect width="1200" height="630" fill="#0c0a09"/>
+
+  <!-- Assinatura: horizonte / camadas de Minas -->
+  <g fill="none" stroke="#2a2420" stroke-width="1.5">
+    <path d="M0 470 C 150 450, 300 484, 470 462 S 770 420, 950 446 S 1120 472, 1200 450"/>
+    <path d="M0 505 C 180 484, 330 514, 510 492 S 810 452, 990 480 S 1140 504, 1200 484"/>
+  </g>
+  <path d="M0 540 C 140 520, 350 548, 530 522 S 830 484, 1010 512 S 1160 534, 1200 516" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+
+  <!-- Régua de sinal -->
+  <rect x="80" y="94" width="6" height="66" fill="#dc2626"/>
+
+  <text x="112" y="130" font-family="Liberation Sans, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="#a39b92">PORTFÓLIO</text>
+
+  <text x="80" y="292" font-family="Liberation Sans, Arial, sans-serif" font-size="104" font-weight="700" fill="#f2ede7">Bernardo Diniz</text>
+
+  <text x="82" y="352" font-family="Liberation Sans, Arial, sans-serif" font-size="38" fill="#a39b92">Técnico em Análise e Desenvolvimento de Sistemas</text>
+
+  <text x="82" y="414" font-family="Liberation Mono, monospace" font-size="27" fill="#dc2626">Python · PHP / Laravel · SQL · Linux · Git</text>
+
+  <text x="80" y="600" font-family="Liberation Sans, Arial, sans-serif" font-size="25" fill="#a39b92">Belo Horizonte, MG · bernardodiniz-1898.github.io/Meu-Portifolio</text>
+</svg>
