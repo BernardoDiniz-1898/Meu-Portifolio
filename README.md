@@ -123,7 +123,6 @@ Meu-Portifolio/
 │       └── main.js          # Menu, navbar, revelação de seção e formulário
 ├── .editorconfig            # Padronização de indentação e encoding
 ├── .gitignore
-├── CHANGELOG.md             # Histórico de versões
 ├── DESIGN.md                # Contrato do sistema visual (tokens e componentes)
 ├── curriculo.html           # Currículo para impressão/exportação em PDF
 ├── index.html               # Conteúdo e estrutura
